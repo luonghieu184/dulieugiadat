@@ -27,46 +27,87 @@
 </script>
 <style>
   :root{
-    --bg:#ffffff; --panel:#f4f6f5; --line:#dbe4de; --ink:#12261d; --muted:#5c7365;
-    --accent:#0d7a4f; --accent-ink:#ffffff; --deep:#0d211b; --deep-ink:#e8f0ea;
+    --bg:#faf7f2; --panel:#f1eae0; --card:#ffffff; --line:#e4dccf;
+    --ink:#1c1712; --muted:#6f6456; --accent:#b0521e; --accent-2:#8a3d16;
+    --accent-ink:#ffffff; --band:#211a13; --band-ink:#f3ebdd; --band-muted:#c3a985;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+    --sans:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   }
   @media (prefers-color-scheme: dark){
-    :root{--bg:#0d211b;--panel:#12291f;--line:#20402f;--ink:#e8f0ea;--muted:#8faa9a;--accent:#3ecf8e;--accent-ink:#062018;--deep:#0a1a14;--deep-ink:#e8f0ea}
+    :root{
+      --bg:#16110d; --panel:#1f1810; --card:#1f1810; --line:#352a1e;
+      --ink:#ece2d4; --muted:#a3927d; --accent:#e08a4e; --accent-2:#e9a06b;
+      --accent-ink:#16110d; --band:#0f0b07; --band-ink:#f0e6d6; --band-muted:#b0906a;
+    }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,Segoe UI,Roboto,sans-serif}
-  a{color:var(--accent)}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  header.hero{background:var(--deep);color:var(--deep-ink);padding:56px 0 44px}
-  header.hero h1{margin:0 0 12px;font-size:30px;line-height:1.25;letter-spacing:.2px}
-  header.hero p{margin:0;color:#9fc3b1;max-width:640px;font-size:17px}
-  .kicker{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:#3ecf8e;margin:0 0 14px;font-weight:600}
-  main{padding:40px 0 60px}
-  section{margin-bottom:44px}
-  h2{font-size:21px;border-bottom:2px solid var(--line);padding-bottom:8px;margin:0 0 18px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media (max-width:640px){.cards{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);padding:20px}
-  .card h3{margin:0 0 10px;font-size:18px}
-  .card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14.5px}
-  .card dt{color:var(--muted)} .card dd{margin:0}
-  .card .src{margin-top:12px;font-size:13px}
-  .big{font-size:19px;font-weight:700;color:var(--accent)}
-  .dl{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);
-      padding:11px 18px;text-decoration:none;font-weight:600;margin:6px 10px 6px 0;border:1px solid var(--accent)}
-  .dl.alt{background:transparent;color:var(--accent)}
-  .note{background:var(--panel);border-left:3px solid var(--accent);padding:14px 18px;font-size:14.5px;color:var(--muted)}
-  ul.src{padding-left:18px;font-size:14.5px} ul.src li{margin:5px 0}
-  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13.5px}
-  table{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
-  code{background:var(--panel);padding:1px 6px;font-size:13px}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.68 var(--sans);
+       -webkit-font-smoothing:antialiased}
+  a{color:var(--accent)} a:hover{color:var(--accent-2)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+
+  /* HERO — băng tối ấm, chữ serif lớn */
+  header.hero{background:var(--band);color:var(--band-ink);padding:64px 0 52px;
+              border-bottom:3px solid var(--accent)}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font:600 12px/1 var(--sans);
+          text-transform:uppercase;letter-spacing:2.5px;color:var(--band-muted);margin:0 0 20px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
+  header.hero h1{margin:0 0 16px;font:600 40px/1.14 var(--serif);letter-spacing:-.4px;max-width:15ch}
+  header.hero p{margin:0;color:var(--band-muted);max-width:60ch;font-size:18px}
+
+  main{padding:52px 0 40px}
+  section{margin-bottom:56px}
+  h2{font:600 25px/1.2 var(--serif);letter-spacing:-.2px;margin:0 0 8px}
+  .lead{color:var(--muted);margin:0 0 24px;max-width:64ch}
+
+  /* THẺ dữ liệu — dạng "phiếu kỹ thuật" */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media (max-width:660px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;
+        box-shadow:0 1px 0 rgba(0,0,0,.02),0 12px 30px -22px rgba(60,40,20,.5);overflow:hidden}
+  .card dl{flex:1 0 auto}
+  .card .cap{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+             padding:16px 22px;background:var(--panel);border-bottom:1px solid var(--line)}
+  .card .cap h3{margin:0;font:600 19px/1.2 var(--serif)}
+  .card .cap .yr{font:600 12px/1 var(--sans);letter-spacing:1.5px;color:var(--accent);text-transform:uppercase}
+  .card dl{margin:0;padding:8px 22px 20px}
+  .card .row{display:grid;grid-template-columns:9.5em 1fr;gap:4px 14px;
+             padding:11px 0;border-bottom:1px solid var(--line)}
+  .card .row:last-child{border-bottom:0}
+  .card dt{color:var(--muted);font-size:13.5px;padding-top:2px}
+  .card dd{margin:0;font-size:15px}
+  .peak{font:700 26px/1 var(--serif);color:var(--accent);letter-spacing:-.5px}
+  .peak small{font:500 13px/1 var(--sans);color:var(--muted);display:block;margin-top:5px;letter-spacing:0}
+  .src{padding:13px 22px;border-top:1px solid var(--line);font-size:13.5px;background:var(--panel)}
+
+  /* TẢI VỀ */
+  .dl{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-ink);
+      padding:13px 22px;text-decoration:none;font:600 15px var(--sans);margin:6px 12px 6px 0;
+      border:1px solid var(--accent);transition:background .15s}
+  .dl:hover{background:var(--accent-2);color:#fff}
+  .dl.alt{background:transparent;color:var(--accent)} .dl.alt:hover{background:var(--panel);color:var(--accent-2)}
+
+  .note{background:var(--panel);border-left:4px solid var(--accent);padding:18px 22px;
+        font-size:15px;color:var(--ink)}
+  .note strong{color:var(--accent-2)}
+
+  ul.links{list-style:none;padding:0;margin:0}
+  ul.links li{padding:14px 0;border-bottom:1px solid var(--line);font-size:15.5px;
+              display:flex;gap:12px;align-items:baseline}
+  ul.links li:last-child{border-bottom:0}
+  ul.links .tag{flex:0 0 auto;font:600 11px/1 var(--sans);letter-spacing:1px;text-transform:uppercase;
+                color:var(--muted);border:1px solid var(--line);padding:4px 8px}
+  code{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:13.5px;
+       background:var(--panel);padding:2px 6px;border:1px solid var(--line)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
-    <p class="kicker">Dữ liệu mở · có nguồn từng số</p>
+    <p class="kicker">Dữ liệu mở · dẫn nguồn từng số</p>
     <h1>Đầu mối bảng giá đất chính thức theo tỉnh</h1>
     <p>Văn bản ban hành, ngày hiệu lực, hệ số điều chỉnh và nơi tra cứu gốc — gom về một chỗ, tải được dạng JSON/CSV. Bắt đầu với Lâm Đồng và TP.HCM 2026.</p>
   </div>
@@ -75,50 +116,52 @@
 <main class="wrap">
   <section>
     <h2>Bộ dữ liệu</h2>
+    <p class="lead">Mỗi phiếu là siêu dữ liệu của một văn bản bảng giá đất — không phải bảng giá từng tuyến đường.</p>
     <div class="cards">
-      <div class="card">
-        <h3>Lâm Đồng · 2026</h3>
+      <article class="card">
+        <div class="cap"><h3>Lâm Đồng</h3><span class="yr">2026</span></div>
         <dl>
-          <dt>Văn bản</dt><dd>Nghị quyết 82/2025/NQ-HĐND</dd>
-          <dt>Ban hành</dt><dd>30/12/2025</dd>
-          <dt>Hiệu lực</dt><dd>01/01/2026</dd>
-          <dt>Thay đổi</dt><dd>Tăng TB 30–50% so với 2020–2024 (Bảo Lộc)</dd>
-          <dt>Hệ số K</dt><dd>QĐ 22/2026/QĐ-UBND · từ 15/5/2026 · K=1 (bồi thường, tái định cư)</dd>
+          <div class="row"><dt>Văn bản</dt><dd>Nghị quyết 82/2025/NQ-HĐND</dd></div>
+          <div class="row"><dt>Ban hành</dt><dd>30/12/2025</dd></div>
+          <div class="row"><dt>Hiệu lực</dt><dd>01/01/2026</dd></div>
+          <div class="row"><dt>Thay đổi</dt><dd>Tăng TB 30–50% so với 2020–2024 (Bảo Lộc)</dd></div>
+          <div class="row"><dt>Hệ số K</dt><dd>QĐ 22/2026/QĐ-UBND · từ 15/5/2026 · K=1 (bồi thường, tái định cư)</dd></div>
         </dl>
-        <div class="src"><a href="https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102384/bang-gia-dat-lam-dong-nam-2026-chinh-thuc" target="_blank" rel="noopener">Nguồn: Thư viện pháp luật</a></div>
-      </div>
-      <div class="card">
-        <h3>TP. Hồ Chí Minh · 2026</h3>
+        <div class="src"><a href="https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102384/bang-gia-dat-lam-dong-nam-2026-chinh-thuc" target="_blank" rel="noopener nofollow">Nguồn: Thư viện pháp luật ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="cap"><h3>TP. Hồ Chí Minh</h3><span class="yr">2026</span></div>
         <dl>
-          <dt>Phạm vi</dt><dd>Gồm Bình Dương, BR-VT sau sáp nhập</dd>
-          <dt>Hiệu lực</dt><dd>01/01/2026</dd>
-          <dt>Áp dụng</dt><dd>12 trường hợp · điều chỉnh hằng năm</dd>
-          <dt>Đất ở cao nhất</dt><dd><span class="big">687,2 tr/m²</span> — Đồng Khởi, Nguyễn Huệ, Lê Lợi</dd>
+          <div class="row"><dt>Phạm vi</dt><dd>Gồm Bình Dương, BR-VT sau sáp nhập</dd></div>
+          <div class="row"><dt>Hiệu lực</dt><dd>01/01/2026</dd></div>
+          <div class="row"><dt>Áp dụng</dt><dd>12 trường hợp · điều chỉnh hằng năm</dd></div>
+          <div class="row"><dt>Đất ở cao nhất</dt><dd><span class="peak">687,2 tr/m²<small>Đồng Khởi · Nguyễn Huệ · Lê Lợi</small></span></dd></div>
         </dl>
-        <div class="src"><a href="https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102188/bang-gia-dat-tphcm-nam-2026-chinh-thuc" target="_blank" rel="noopener">Nguồn: Thư viện pháp luật</a></div>
-      </div>
+        <div class="src"><a href="https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102188/bang-gia-dat-tphcm-nam-2026-chinh-thuc" target="_blank" rel="noopener nofollow">Nguồn: Thư viện pháp luật ↗</a></div>
+      </article>
     </div>
   </section>
 
   <section>
     <h2>Tải về</h2>
+    <p class="lead">Cùng một dữ liệu, hai định dạng. Dùng lại tự do, ghi nguồn.</p>
     <p>
-      <a class="dl" href="data/nguon-bang-gia-dat.json" download>⬇ JSON</a>
-      <a class="dl alt" href="data/nguon-bang-gia-dat.csv" download>⬇ CSV</a>
+      <a class="dl" href="data/nguon-bang-gia-dat.json" download>⬇ Tải JSON</a>
+      <a class="dl alt" href="data/nguon-bang-gia-dat.csv" download>⬇ Tải CSV</a>
     </p>
     <p class="note">Đây là <strong>siêu dữ liệu có dẫn nguồn</strong> — văn bản, ngày hiệu lực, hệ số — <em>không phải</em> bảng giá từng tuyến đường. Con số theo từng thửa nằm trong phụ lục văn bản gốc; khi cần tính thuế hay đền bù, đối chiếu văn bản của tỉnh. Không suy diễn, không thêm số ngoài nguồn.</p>
   </section>
 
   <section>
     <h2>Cách dùng</h2>
-    <p>Mỗi bản ghi có trường <code>nguon</code> trỏ thẳng tới văn bản/bài công bố. Quy trình đúng: đọc con số ở đây để biết <em>văn bản nào, hiệu lực từ ngày nào</em>, rồi mở nguồn để lấy bảng chi tiết. Bộ dữ liệu cập nhật khi tỉnh ra văn bản mới.</p>
+    <p class="lead">Mỗi bản ghi có trường <code>nguon</code> trỏ thẳng tới văn bản/bài công bố. Quy trình đúng: đọc con số ở đây để biết <em>văn bản nào, hiệu lực từ ngày nào</em>, rồi mở nguồn để lấy bảng chi tiết. Bộ dữ liệu cập nhật khi tỉnh ra văn bản mới.</p>
   </section>
 
   <section>
     <h2>Nơi tra cứu chính thức</h2>
-    <ul class="src">
-      <li><a href="https://thuvienphapluat.vn/" target="_blank" rel="noopener">Thư viện pháp luật</a> — tra bảng giá đất theo tỉnh</li>
-      <li><a href="https://luatvietnam.vn/bang-gia-dat.html" target="_blank" rel="noopener">LuatVietnam</a> — bảng giá đất 63 tỉnh, chi tiết tới tuyến đường</li>
+    <ul class="links">
+      <li><span class="tag">Tỉnh</span><a href="https://thuvienphapluat.vn/" target="_blank" rel="noopener nofollow">Thư viện pháp luật</a> — tra bảng giá đất theo tỉnh</li>
+      <li><span class="tag">63 tỉnh</span><a href="https://luatvietnam.vn/bang-gia-dat.html" target="_blank" rel="noopener nofollow">LuatVietnam</a> — chi tiết tới tuyến đường</li>
     </ul>
   </section>
 </main>
