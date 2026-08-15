@@ -7,20 +7,11 @@
   --bg:#f4f6f8; --surface:#ffffff; --panel:#eaedf1; --line:#dbe0e7;
   --ink:#181c23; --muted:#59626f; --faint:#8a94a2;
   --accent:#c0512e; --accent-2:#9c3f20; --accent-soft:rgba(192,81,46,.10);
-  --band:#191e26; --band-ink:#eef1f5; --band-muted:#9aa4b2;
+  --hero:#faefe9; --hero-muted:#7c6053;
   --r:6px; --maxw:1080px; --read:68ch;
   --sans:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   --mono:ui-monospace,'Cascadia Code','Segoe UI Mono',Consolas,monospace;
   --shadow:0 1px 2px rgba(24,28,35,.04),0 14px 34px -24px rgba(40,30,20,.42);
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#111419; --surface:#181c22; --panel:#1c2129; --line:#2a313c;
-    --ink:#e6eaf0; --muted:#98a2b0; --faint:#6c7686;
-    --accent:#e07a54; --accent-2:#ec9271; --accent-soft:rgba(224,122,84,.14);
-    --band:#0c0f13; --band-ink:#eef1f5; --band-muted:#8892a0;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -26px rgba(0,0,0,.7);
-  }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -49,15 +40,15 @@ a:hover{color:var(--accent-2)}
   @keyframes rise{to{opacity:1;transform:none}}
 }
 
-/* HERO band tối slate */
-.hero{background:var(--band);color:var(--band-ink);border-bottom:3px solid var(--accent)}
+/* HERO sáng, viền accent */
+.hero{background:var(--hero);color:var(--ink);border-bottom:3px solid var(--accent)}
 .hero .wrap{padding:60px 22px 52px}
 .kick{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--sans);
-  letter-spacing:2px;text-transform:uppercase;color:var(--band-muted);margin:0 0 20px}
+  letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
 .kick::before{content:"";width:24px;height:2px;background:var(--accent)}
 .hero h1{margin:0 0 16px;font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.1;
   letter-spacing:-1px;max-width:16ch}
-.hero p{margin:0;color:var(--band-muted);font-size:18px;max-width:60ch}
+.hero p{margin:0;color:var(--hero-muted);font-size:18px;max-width:60ch}
 
 /* SECTION */
 main{padding:52px 0 30px}
