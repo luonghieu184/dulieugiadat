@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dữ liệu giá đất — đầu mối bảng giá đất chính thức theo tỉnh</title>
+<meta name="description" content="Siêu dữ liệu mở về bảng giá đất và hệ số điều chỉnh giá đất theo tỉnh, mỗi con số kèm nguồn. Tải JSON/CSV. Bắt đầu với Lâm Đồng và TP.HCM 2026." />
+<link rel="canonical" href="https://luonghieu184.github.io/dulieugiadat/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dữ liệu giá đất — đầu mối bảng giá đất chính thức" />
+<meta property="og:description" content="Bảng giá đất và hệ số điều chỉnh theo tỉnh, có nguồn từng số. Tải JSON/CSV." />
+<meta property="og:url" content="https://luonghieu184.github.io/dulieugiadat/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Đầu mối bảng giá đất chính thức theo tỉnh",
+  "description": "Siêu dữ liệu về văn bản ban hành bảng giá đất và hệ số điều chỉnh giá đất theo tỉnh, có dẫn nguồn.",
+  "url": "https://luonghieu184.github.io/dulieugiadat/",
+  "inLanguage": "vi",
+  "creator": { "@type": "Organization", "name": "Dữ liệu giá đất" },
+  "distribution": [
+    { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://luonghieu184.github.io/dulieugiadat/data/nguon-bang-gia-dat.json" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://luonghieu184.github.io/dulieugiadat/data/nguon-bang-gia-dat.csv" }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#f4f6f5; --line:#dbe4de; --ink:#12261d; --muted:#5c7365;
+    --accent:#0d7a4f; --accent-ink:#ffffff; --deep:#0d211b; --deep-ink:#e8f0ea;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0d211b;--panel:#12291f;--line:#20402f;--ink:#e8f0ea;--muted:#8faa9a;--accent:#3ecf8e;--accent-ink:#062018;--deep:#0a1a14;--deep-ink:#e8f0ea}
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,Segoe UI,Roboto,sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header.hero{background:var(--deep);color:var(--deep-ink);padding:56px 0 44px}
+  header.hero h1{margin:0 0 12px;font-size:30px;line-height:1.25;letter-spacing:.2px}
+  header.hero p{margin:0;color:#9fc3b1;max-width:640px;font-size:17px}
+  .kicker{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:#3ecf8e;margin:0 0 14px;font-weight:600}
+  main{padding:40px 0 60px}
+  section{margin-bottom:44px}
+  h2{font-size:21px;border-bottom:2px solid var(--line);padding-bottom:8px;margin:0 0 18px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:640px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);padding:20px}
+  .card h3{margin:0 0 10px;font-size:18px}
+  .card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14.5px}
+  .card dt{color:var(--muted)} .card dd{margin:0}
+  .card .src{margin-top:12px;font-size:13px}
+  .big{font-size:19px;font-weight:700;color:var(--accent)}
+  .dl{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);
+      padding:11px 18px;text-decoration:none;font-weight:600;margin:6px 10px 6px 0;border:1px solid var(--accent)}
+  .dl.alt{background:transparent;color:var(--accent)}
+  .note{background:var(--panel);border-left:3px solid var(--accent);padding:14px 18px;font-size:14.5px;color:var(--muted)}
+  ul.src{padding-left:18px;font-size:14.5px} ul.src li{margin:5px 0}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13.5px}
+  table{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+  code{background:var(--panel);padding:1px 6px;font-size:13px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Dữ liệu mở · có nguồn từng số</p>
+    <h1>Đầu mối bảng giá đất chính thức theo tỉnh</h1>
+    <p>Văn bản ban hành, ngày hiệu lực, hệ số điều chỉnh và nơi tra cứu gốc — gom về một chỗ, tải được dạng JSON/CSV. Bắt đầu với Lâm Đồng và TP.HCM 2026.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Bộ dữ liệu</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Lâm Đồng · 2026</h3>
+        <dl>
+          <dt>Văn bản</dt><dd>Nghị quyết 82/2025/NQ-HĐND</dd>
+          <dt>Ban hành</dt><dd>30/12/2025</dd>
+          <dt>Hiệu lực</dt><dd>01/01/2026</dd>
+          <dt>Thay đổi</dt><dd>Tăng TB 30–50% so với 2020–2024 (Bảo Lộc)</dd>
+          <dt>Hệ số K</dt><dd>QĐ 22/2026/QĐ-UBND · từ 15/5/2026 · K=1 (bồi thường, tái định cư)</dd>
+        </dl>
+        <div class="src"><a href="https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102384/bang-gia-dat-lam-dong-nam-2026-chinh-thuc" target="_blank" rel="noopener">Nguồn: Thư viện pháp luật</a></div>
+      </div>
+      <div class="card">
+        <h3>TP. Hồ Chí Minh · 2026</h3>
+        <dl>
+          <dt>Phạm vi</dt><dd>Gồm Bình Dương, BR-VT sau sáp nhập</dd>
+          <dt>Hiệu lực</dt><dd>01/01/2026</dd>
+          <dt>Áp dụng</dt><dd>12 trường hợp · điều chỉnh hằng năm</dd>
+          <dt>Đất ở cao nhất</dt><dd><span class="big">687,2 tr/m²</span> — Đồng Khởi, Nguyễn Huệ, Lê Lợi</dd>
+        </dl>
+        <div class="src"><a href="https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102188/bang-gia-dat-tphcm-nam-2026-chinh-thuc" target="_blank" rel="noopener">Nguồn: Thư viện pháp luật</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tải về</h2>
+    <p>
+      <a class="dl" href="data/nguon-bang-gia-dat.json" download>⬇ JSON</a>
+      <a class="dl alt" href="data/nguon-bang-gia-dat.csv" download>⬇ CSV</a>
+    </p>
+    <p class="note">Đây là <strong>siêu dữ liệu có dẫn nguồn</strong> — văn bản, ngày hiệu lực, hệ số — <em>không phải</em> bảng giá từng tuyến đường. Con số theo từng thửa nằm trong phụ lục văn bản gốc; khi cần tính thuế hay đền bù, đối chiếu văn bản của tỉnh. Không suy diễn, không thêm số ngoài nguồn.</p>
+  </section>
+
+  <section>
+    <h2>Cách dùng</h2>
+    <p>Mỗi bản ghi có trường <code>nguon</code> trỏ thẳng tới văn bản/bài công bố. Quy trình đúng: đọc con số ở đây để biết <em>văn bản nào, hiệu lực từ ngày nào</em>, rồi mở nguồn để lấy bảng chi tiết. Bộ dữ liệu cập nhật khi tỉnh ra văn bản mới.</p>
+  </section>
+
+  <section>
+    <h2>Nơi tra cứu chính thức</h2>
+    <ul class="src">
+      <li><a href="https://thuvienphapluat.vn/" target="_blank" rel="noopener">Thư viện pháp luật</a> — tra bảng giá đất theo tỉnh</li>
+      <li><a href="https://luatvietnam.vn/bang-gia-dat.html" target="_blank" rel="noopener">LuatVietnam</a> — bảng giá đất 63 tỉnh, chi tiết tới tuyến đường</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Dữ liệu giá đất · cập nhật 15/08/2026 · dữ liệu mở, dùng lại tự do có ghi nguồn.
+    Mọi con số đều dẫn về văn bản chính thức của cơ quan nhà nước.
+  </div>
+</footer>
+</body>
+</html>

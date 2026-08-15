@@ -1,0 +1,48 @@
+{
+  "bo_du_lieu": "Đầu mối bảng giá đất chính thức theo tỉnh",
+  "mo_ta": "Siêu dữ liệu về văn bản ban hành bảng giá đất và hệ số điều chỉnh giá đất. Mỗi con số kèm nguồn. Không suy diễn giá theo từng tuyến đường — phần đó tra ở văn bản gốc.",
+  "cap_nhat": "2026-08-15",
+  "don_vi_gia": "đồng/m²",
+  "tinh": [
+    {
+      "ten": "Lâm Đồng",
+      "van_ban_bang_gia": "Nghị quyết 82/2025/NQ-HĐND",
+      "ngay_ban_hanh": "2025-12-30",
+      "hieu_luc": "2026-01-01",
+      "muc_thay_doi": "Tăng trung bình 30–50% so với giai đoạn 2020–2024 (dẫn chứng tại Bảo Lộc)",
+      "he_so_dieu_chinh": {
+        "van_ban": "Quyết định 22/2026/QĐ-UBND",
+        "hieu_luc": "2026-05-15",
+        "k_boi_thuong_tai_dinh_cu": 1
+      },
+      "gia_dat_o_cao_nhat": null,
+      "ghi_chu": "Chi tiết theo từng tuyến/thửa nằm trong phụ lục của nghị quyết — tra ở nguồn.",
+      "nguon": [
+        "https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102384/bang-gia-dat-lam-dong-nam-2026-chinh-thuc",
+        "https://vneconomy.vn/lam-dong-ban-hanh-he-so-dieu-chinh-gia-dat-nam-2026.htm"
+      ]
+    },
+    {
+      "ten": "TP. Hồ Chí Minh (gồm Bình Dương, Bà Rịa – Vũng Tàu sau sáp nhập)",
+      "van_ban_bang_gia": "Bảng giá đất TP.HCM 2026",
+      "ngay_ban_hanh": null,
+      "hieu_luc": "2026-01-01",
+      "muc_thay_doi": "Mở rộng phạm vi lên 12 trường hợp áp dụng; điều chỉnh hằng năm",
+      "he_so_dieu_chinh": null,
+      "gia_dat_o_cao_nhat": {
+        "gia": 687200000,
+        "vi_tri": "Đồng Khởi, Nguyễn Huệ, Lê Lợi (Quận 1 cũ)"
+      },
+      "ghi_chu": "Bảng phủ cả địa bàn Bình Dương và BR-VT sau sáp nhập.",
+      "nguon": [
+        "https://tuoitre.vn/bang-gia-dat-tp-hcm-2026-nhieu-truong-hop-giam-de-khuyen-khich-san-xuat-20251224145921399.htm",
+        "https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/bat-dong-san/102188/bang-gia-dat-tphcm-nam-2026-chinh-thuc"
+      ]
+    }
+  ],
+  "noi_tra_cuu_chinh_thuc": [
+    { "ten": "Thư viện pháp luật — tra bảng giá đất", "url": "https://thuvienphapluat.vn/" },
+    { "ten": "LuatVietnam — bảng giá đất 63 tỉnh", "url": "https://luatvietnam.vn/bang-gia-dat.html" }
+  ],
+  "tuyen_bo_du_lieu": "Đây là siêu dữ liệu tổng hợp có dẫn nguồn, không phải văn bản pháp luật. Khi cần con số để tính thuế/đền bù, đối chiếu văn bản gốc của tỉnh."
+}
